@@ -24,10 +24,53 @@ web3.eth.getBlockNumber().then(result=>{
     console.log(`The latest block number is: ${result}`);
 });
 
+
+/*
+//get 10 latest blocks
+
+web3.eth.getBlockNumber().then(result=>{
+
+    let prevBlocksCount = 10;
+
+    console.log(`number of ${prevBlocksCount} lastest blocks`);
+
+    for(let i=0; i<=prevBlocksCount; i++){
+        web3.eth.getBlock(result-1).then(block=>{
+                console.log(block.number);
+        });
+    }
+});
+
+*/
+
+
+
+/*
+
 //view block details by block number (time, size, transactions list, nonce)
 web3.eth.getBlock(15024893).then(block=>{
    console.log(block);
 });
+
+*/
+
+
+// get block number using strings("latest", "pending")
+
+web3.eth.getBlock('latest').then(block=>{
+    console.log(`Latest block bymber = ${block.number}`);
+ });
+
+ web3.eth.getBlock('pending').then(block=>{
+    console.log(`Pending block number = ${block.number}`);
+ });
+
+
+ //get transaction from block on a specific index
+
+ web3.eth.getTransactionFromBlock(15025107, 2).then(console.log);
+
+
 
 
 
